@@ -296,6 +296,19 @@ body {
   text-align: center;
 }
 
+.search-hero {
+  background: radial-gradient(circle at center, rgba(26,163,216,0.12), rgba(0,0,0,0) 70%);
+  padding: 40px 20px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.search-hero .search-wrapper {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 600px;
+}
+
 
 
 
