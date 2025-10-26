@@ -13,6 +13,7 @@ yearEl.textContent = new Date().getFullYear();
 
 let festivals = [];
 let filteredFestivals = [];
+let activeIndex = -1; // for dropdown keyboard navigation
 
 // === Fetch CSV and Parse ===
 async function fetchFestivals() {
@@ -110,6 +111,7 @@ function renderFestivals(list) {
 // === Search and Filter ===
 searchInput.addEventListener("input", e => {
   const q = e.target.value.toLowerCase();
+  activeIndex = -1; // reset active highlight
   if (!q) {
     dropdown.style.display = "none";
     renderFestivals(festivals);
@@ -130,6 +132,33 @@ searchInput.addEventListener("input", e => {
     });
   });
 });
+
+// === Keyboard navigation for dropdown ===
+searchInput.addEventListener("keydown", e => {
+  const items = dropdown.querySelectorAll(".item");
+  if (!items.length) return;
+
+  if (e.key === "ArrowDown") {
+    e.preventDefault();
+    activeIndex = (activeIndex + 1) % items.length;
+    updateActive(items);
+  } else if (e.key === "ArrowUp") {
+    e.preventDefault();
+    activeIndex = (activeIndex - 1 + items.length) % items.length;
+    updateActive(items);
+  } else if (e.key === "Enter") {
+    e.preventDefault();
+    if (activeIndex >= 0) {
+      items[activeIndex].click();
+    }
+  }
+});
+
+function updateActive(items) {
+  items.forEach((el, i) => {
+    el.classList.toggle("active", i === activeIndex);
+  });
+}
 
 showAllBtn.addEventListener("click", () => {
   searchInput.value = "";
