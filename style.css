@@ -142,6 +142,10 @@ body {
 .dropdown .item:hover {
   background: rgba(0, 0, 0, 0.03);
 }
+/* Active suggestion (when navigating with keyboard) */
+.dropdown .item.active {
+  background: rgba(26, 163, 216, 0.15);
+}
 
 /* Button */
 .btn {
@@ -282,6 +286,7 @@ body {
   padding: 30px;
   text-align: center;
 }
+
 
 
 
