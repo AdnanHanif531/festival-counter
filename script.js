@@ -90,7 +90,16 @@ function renderFestivals(list) {
 
     const daysLeft = document.createElement("div");
     daysLeft.className = "days-left";
-    daysLeft.textContent = f.days >= 0 ? `${f.days} days` : "Passed";
+
+    if (f.days < 0) {
+      daysLeft.textContent = "Passed";
+      daysLeft.classList.add("passed");
+    } else if (f.days === 0) {
+      daysLeft.textContent = "Today 🎉";
+      daysLeft.classList.add("today");
+    } else {
+      daysLeft.textContent = `${f.days} days`;
+    }
 
     cardTop.appendChild(icon);
     cardTop.appendChild(body);
@@ -107,6 +116,7 @@ function renderFestivals(list) {
     listSection.appendChild(card);
   });
 }
+
 
 // === Search and Filter ===
 searchInput.addEventListener("input", e => {
@@ -192,5 +202,6 @@ async function shareFestival(f) {
 
 // === Init ===
 fetchFestivals();
+
 
 
