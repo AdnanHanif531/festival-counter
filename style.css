@@ -14,7 +14,7 @@
 .search-hero {
   display: flex;
   justify-content: center;
-  margin: 20px auto;
+  margin: 30px auto 40px auto; /* more space above & below */
   width: 100%;
 }
 
@@ -282,4 +282,5 @@ body {
   padding: 30px;
   text-align: center;
 }
+
 
