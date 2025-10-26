@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DaysUntil — Festival Countdown</title>
+  <meta name="description" content="Global festival countdown. See how many days left until major religious, cultural and national events." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo-circle">⏳</div>
+        <div class="brand-text">
+          <h1>DaysUntil</h1>
+          <div class="subtitle">Global Festival Countdown</div>
+        </div>
+      </div>
+
+      <!-- Centered Search -->
+      <div class="search-center">
+        <div class="search-wrapper" id="searchWrapper">
+          <input id="searchInput" class="search-input" placeholder="Search or select a festival..." aria-label="Search festivals" />
+          <div id="dropdown" class="dropdown" aria-hidden="true"></div>
+          <button id="showAllBtn" class="btn outline">Show All</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="hero">
+        <h2>Upcoming Festivals Around the World</h2>
+        <p class="hero-sub">Auto-sorted by nearest date. Edit your Google Sheet to update instantly.</p>
+      </section>
+
+      <section id="listSection" class="festival-list" aria-live="polite">
+        <div id="loading" class="loading">Loading festivals…</div>
+      </section>
+
+      <section class="about">
+        <h3>About</h3>
+        <p>This tool pulls data directly from your public Google Sheet and calculates how many days remain until each festival — dynamically updated to your timezone.</p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>© <span id="year"></span> DaysUntil — Built to be global & neutral.</div>
+      <div class="small">Data Source: Published Google Sheet (CSV)</div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
