@@ -10,22 +10,6 @@
   --shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
   font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
 }
-/* Search hero area */
-.search-hero {
-  display: flex;
-  justify-content: center;
-  margin: 30px auto 40px auto; /* more space above & below */
-  width: 100%;
-}
-
-.search-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  width: 90%;
-  max-width: 600px;
-  position: relative;
-}
 
 /* Base */
 * {
@@ -92,19 +76,22 @@ body {
   color: var(--muted);
 }
 
-/* Centered search bar */
-.search-center {
+/* Search hero area */
+.search-hero {
+  background: radial-gradient(circle at center, rgba(26,163,216,0.12), rgba(0,0,0,0) 70%);
+  padding: 40px 20px;
+  text-align: center;
+  margin: 30px auto 40px auto;
   width: 100%;
-  display: flex;
-  justify-content: center;
 }
 
-.search-wrapper {
+.search-hero .search-wrapper {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 600px;
   display: flex;
   align-items: center;
   gap: 10px;
-  width: 80%;
-  max-width: 600px;
   position: relative;
 }
 
@@ -244,7 +231,7 @@ body {
 .days-left {
   font-size: 22px;
   font-weight: 700;
-  color: var(--teal-2);
+  color: var(--accent2);
   min-width: 80px;
   text-align: right;
 }
@@ -260,16 +247,16 @@ body {
   align-self: flex-end;
   margin-top: 12px;
   padding: 6px 12px;
-  border: 1px solid var(--teal-2);
+  border: 1px solid var(--accent2);
   border-radius: 6px;
   background: transparent;
-  color: var(--teal-2);
+  color: var(--accent2);
   font-size: 13px;
   cursor: pointer;
   transition: background 0.2s ease;
 }
 .share-btn:hover {
-  background: var(--teal-2);
+  background: var(--accent2);
   color: #fff;
 }
 
@@ -295,22 +282,3 @@ body {
   padding: 30px;
   text-align: center;
 }
-
-.search-hero {
-  background: radial-gradient(circle at center, rgba(26,163,216,0.12), rgba(0,0,0,0) 70%);
-  padding: 40px 20px;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.search-hero .search-wrapper {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 600px;
-}
-
-
-
-
-
-
