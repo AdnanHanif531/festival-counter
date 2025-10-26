@@ -110,11 +110,11 @@ body {
 
 .search-input {
   flex: 1;
-  padding: 12px 14px;
+  padding: 15px 17px;
   border-radius: 12px;
   border: 1px solid rgba(0, 0, 0, 0.06);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
-  font-size: 15px;
+  font-size: 18px;
   outline: none;
 }
 .search-input:focus {
@@ -282,5 +282,6 @@ body {
   padding: 30px;
   text-align: center;
 }
+
 
 
