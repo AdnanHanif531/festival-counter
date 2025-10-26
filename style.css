@@ -10,6 +10,22 @@
   --shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
   font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
 }
+/* Search hero area */
+.search-hero {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  width: 100%;
+}
+
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 90%;
+  max-width: 600px;
+  position: relative;
+}
 
 /* Base */
 * {
@@ -266,3 +282,4 @@ body {
   padding: 30px;
   text-align: center;
 }
+
