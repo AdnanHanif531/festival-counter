@@ -25,7 +25,7 @@ async function fetchFestivals() {
 
     const data = rows.slice(1).map(r => {
       const cols = r.split(",");
-      const rawName = cols[0]?.trim();
+     const rawName = cols[0]?.replace(/(^"|"$)/g, "").trim();
       const date = cols[1]?.trim();
       const emoji = cols[2]?.trim();
       const region = cols[3]?.trim();
@@ -192,4 +192,5 @@ async function shareFestival(f) {
 
 // === Init ===
 fetchFestivals();
+
 
