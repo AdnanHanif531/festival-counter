@@ -151,6 +151,13 @@ searchInput.addEventListener("keydown", e => {
     if (activeIndex >= 0) {
       items[activeIndex].click();
     }
+ else {
+    // fallback: search normally, case-insensitive
+    const q = searchInput.value.trim().toLowerCase();
+    const matched = festivals.filter(f => f.name.toLowerCase().includes(q));
+    renderFestivals(matched);
+    dropdown.style.display = "none";
+  }
   }
 });
 
@@ -185,3 +192,4 @@ async function shareFestival(f) {
 
 // === Init ===
 fetchFestivals();
+
