@@ -212,55 +212,65 @@ body {
 .card-top {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 12px;
 }
 
 .icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 12px;
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: rgba(26,163,216,0.08);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 28px;
-  background: linear-gradient(135deg, rgba(26, 163, 216, 0.12), rgba(0, 191, 166, 0.06));
+  font-size: 24px;
 }
 
 .card-body {
   flex: 1;
 }
 .card-title {
-  font-size: 17px;
-  margin: 0 0 4px;
+  margin: 0;
+  font-size: 16px;
   font-weight: 600;
 }
 .card-meta {
-  color: var(--muted);
   font-size: 13px;
-  margin-bottom: 6px;
+  color: #666;
+  margin-top: 2px;
 }
+
 .days-left {
+  font-size: 22px;
   font-weight: 700;
-  font-size: 20px;
-  color: var(--accent2);
+  color: var(--teal-2);
+  min-width: 80px;
+  text-align: right;
+}
+.days-left.today {
+  color: #28a745; /* green */
+}
+.days-left.passed {
+  color: #b35c5c; /* red */
 }
 
 /* Share button */
 .share-btn {
-  margin-top: 8px;
-  align-self: flex-start;
-  background: var(--accent-gradient);
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  padding: 8px 12px;
+  align-self: flex-end;
+  margin-top: 12px;
+  padding: 6px 12px;
+  border: 1px solid var(--teal-2);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--teal-2);
   font-size: 13px;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(26, 163, 216, 0.2);
   transition: background 0.2s ease;
 }
 .share-btn:hover {
-  opacity: 0.9;
+  background: var(--teal-2);
+  color: #fff;
 }
 
 /* About + Footer */
@@ -285,6 +295,7 @@ body {
   padding: 30px;
   text-align: center;
 }
+
 
 
 
