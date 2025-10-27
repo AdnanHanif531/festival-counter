@@ -6,7 +6,8 @@ const listSection = document.getElementById("listSection");
 const loadingEl = document.getElementById("loading");
 const searchInput = document.getElementById("searchInput");
 const dropdown = document.getElementById("dropdown");
-const showAllBtn = document.getElementById("showAllBtn");
+const searchBtn = document.getElementById("searchBtn");
+const showAllLink = document.getElementById("showAllLink");
 const yearEl = document.getElementById("year");
 
 yearEl.textContent = new Date().getFullYear();
@@ -168,21 +169,18 @@ searchInput.addEventListener("keydown", e => {
   }
 });
 
-// === FIXED updateActive ===
+// === updateActive ensures scroll ===
 function updateActive(items) {
-  const container = dropdown; // the scrollable dropdown
-
+  const container = dropdown;
   items.forEach((el, i) => {
     el.classList.toggle("active", i === activeIndex);
   });
-
   if (activeIndex >= 0 && items[activeIndex]) {
     const el = items[activeIndex];
     const elTop = el.offsetTop;
     const elBottom = elTop + el.offsetHeight;
     const viewTop = container.scrollTop;
     const viewBottom = viewTop + container.clientHeight;
-
     if (elTop < viewTop) {
       container.scrollTop = elTop;
     } else if (elBottom > viewBottom) {
@@ -191,10 +189,22 @@ function updateActive(items) {
   }
 }
 
-showAllBtn.addEventListener("click", () => {
+// === Search button ===
+searchBtn.addEventListener("click", () => {
+  const q = searchInput.value.trim().toLowerCase();
+  if (!q) return;
+  const matched = festivals.filter(f => f.name.toLowerCase().includes(q));
+  renderFestivals(matched);
+  dropdown.style.display = "none";
+});
+
+// === Show All link ===
+showAllLink.addEventListener("click", e => {
+  e.preventDefault();
   searchInput.value = "";
   renderFestivals(festivals);
   dropdown.style.display = "none";
+  activeIndex = -1;
 });
 
 // === Share Logic ===
