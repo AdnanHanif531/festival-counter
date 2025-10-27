@@ -292,4 +292,25 @@ body {
   text-align: center;
 }
 
+/* Group input + dropdown properly */
+.input-group {
+  position: relative;
+  flex: 1; /* input takes full width, pushes button aside */
+}
+
+.input-group .dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;   /* match input width */
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  display: none;
+  max-height: 260px;
+  overflow-y: auto;
+  font-size: 15px;
+  z-index: 99;
+}
+
 
