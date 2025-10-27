@@ -92,9 +92,7 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  position: relative; /* ensures dropdown aligns correctly */
 }
-
 
 .search-input {
   flex: 1;
@@ -110,12 +108,16 @@ body {
   box-shadow: 0 0 0 3px rgba(26, 163, 216, 0.15);
 }
 
-/* Fixed dropdown styling */
-.search-hero .search-wrapper .dropdown {
+/* ✅ Fixed dropdown styling (only inside input-group) */
+.input-group {
+  position: relative;
+  flex: 1; /* input takes full width */
+}
+.input-group .dropdown {
   position: absolute;
-  top: 100%;   /* directly below search input */
+  top: 100%;
   left: 0;
-  width: 100%; /* match search-wrapper width */
+  width: 100%; /* match input width */
   background: white;
   border-radius: 10px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
@@ -125,8 +127,7 @@ body {
   font-size: 15px;
   z-index: 99;
 }
-
-.search-hero .search-wrapper .dropdown .item {
+.input-group .dropdown .item {
   padding: 12px 16px;
   cursor: pointer;
   font-size: 15px;
@@ -134,11 +135,11 @@ body {
   color: #333;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
-.search-hero .search-wrapper .dropdown .item:last-child {
+.input-group .dropdown .item:last-child {
   border-bottom: none;
 }
-.search-hero .search-wrapper .dropdown .item:hover,
-.search-hero .search-wrapper .dropdown .item.active {
+.input-group .dropdown .item:hover,
+.input-group .dropdown .item.active {
   background: rgba(26,163,216,0.08);
   color: var(--accent2);
 }
@@ -291,26 +292,3 @@ body {
   padding: 30px;
   text-align: center;
 }
-
-/* Group input + dropdown properly */
-.input-group {
-  position: relative;
-  flex: 1; /* input takes full width, pushes button aside */
-}
-
-.input-group .dropdown {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;   /* match input width */
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  display: none;
-  max-height: 260px;
-  overflow-y: auto;
-  font-size: 15px;
-  z-index: 99;
-}
-
-
