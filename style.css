@@ -181,3 +181,22 @@ body {
 
 /* Loading */
 .loading { color: var(--muted); padding: 30px; text-align: center; }
+
+/* Show All link styling */
+.show-all-link {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.show-all-link a {
+  font-size: 14px;
+  color: var(--accent2);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.show-all-link a:hover {
+  text-decoration: underline;
+}
+
+
