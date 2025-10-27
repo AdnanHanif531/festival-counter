@@ -94,18 +94,7 @@ body {
   gap: 10px;
   position: relative; /* ensures dropdown aligns correctly */
 }
-/* Keep input + dropdown grouped so dropdown matches input width */
-.input-group {
-  position: relative;
-  flex: 1; /* let input take up full available space */
-}
 
-.input-group .dropdown {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;  /* dropdown matches the input exactly */
-}
 
 .search-input {
   flex: 1;
@@ -302,4 +291,5 @@ body {
   padding: 30px;
   text-align: center;
 }
+
 
