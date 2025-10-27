@@ -174,6 +174,10 @@ searchInput.addEventListener("keydown", e => {
 function updateActive(items) {
   items.forEach((el, i) => {
     el.classList.toggle("active", i === activeIndex);
+    if (i === activeIndex) {
+      // make sure active item is visible
+      el.scrollIntoView({ block: "nearest" });
+    }
   });
 }
 
@@ -202,6 +206,7 @@ async function shareFestival(f) {
 
 // === Init ===
 fetchFestivals();
+
 
 
 
