@@ -25,7 +25,7 @@ async function fetchFestivals() {
 
     const data = rows.slice(1).map(r => {
       const cols = r.split(",");
-     const rawName = cols[0]?.replace(/(^"|"$)/g, "").trim();
+      const rawName = cols[0]?.replace(/(^"|"$)/g, "").trim();
       const date = cols[1]?.trim();
       const emoji = cols[2]?.trim();
       const region = cols[3]?.trim();
@@ -117,7 +117,6 @@ function renderFestivals(list) {
   });
 }
 
-
 // === Search and Filter ===
 searchInput.addEventListener("input", e => {
   const q = e.target.value.toLowerCase();
@@ -160,25 +159,36 @@ searchInput.addEventListener("keydown", e => {
     e.preventDefault();
     if (activeIndex >= 0) {
       items[activeIndex].click();
+    } else {
+      const q = searchInput.value.trim().toLowerCase();
+      const matched = festivals.filter(f => f.name.toLowerCase().includes(q));
+      renderFestivals(matched);
+      dropdown.style.display = "none";
     }
- else {
-    // fallback: search normally, case-insensitive
-    const q = searchInput.value.trim().toLowerCase();
-    const matched = festivals.filter(f => f.name.toLowerCase().includes(q));
-    renderFestivals(matched);
-    dropdown.style.display = "none";
-  }
   }
 });
 
+// === FIXED updateActive ===
 function updateActive(items) {
+  const container = dropdown; // the scrollable dropdown
+
   items.forEach((el, i) => {
     el.classList.toggle("active", i === activeIndex);
-    if (i === activeIndex) {
-      // make sure active item is visible
-      el.scrollIntoView({ block: "nearest" });
-    }
   });
+
+  if (activeIndex >= 0 && items[activeIndex]) {
+    const el = items[activeIndex];
+    const elTop = el.offsetTop;
+    const elBottom = elTop + el.offsetHeight;
+    const viewTop = container.scrollTop;
+    const viewBottom = viewTop + container.clientHeight;
+
+    if (elTop < viewTop) {
+      container.scrollTop = elTop;
+    } else if (elBottom > viewBottom) {
+      container.scrollTop = elBottom - container.clientHeight;
+    }
+  }
 }
 
 showAllBtn.addEventListener("click", () => {
@@ -206,7 +216,3 @@ async function shareFestival(f) {
 
 // === Init ===
 fetchFestivals();
-
-
-
-
