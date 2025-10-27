@@ -57,15 +57,15 @@ body {
 .search-hero .search-wrapper {
   margin: 0 auto;
   width: 100%;
-  max-width: 720px;              /* wider container */
+  max-width: 720px;
   display: flex;
   align-items: center;
   gap: 10px;
 }
 .input-group {
   position: relative;
-  flex: 1 1 auto;                /* grow and shrink */
-  min-width: 0;                  /* prevents shrinking bug */
+  flex: 1 1 auto;
+  min-width: 0;
 }
 .search-input {
   width: 100%;
@@ -106,17 +106,33 @@ body {
   background: rgba(26,163,216,0.08);
   color: var(--accent2);
 }
-/* button */
-#showAllBtn { flex: 0 0 auto; white-space: nowrap; }
+
+/* Buttons */
 .btn {
-  padding: 10px 14px; border-radius: 10px; border: 0;
-  cursor: pointer; font-size: 14px;
-  background: var(--accent1); color: #fff; box-shadow: var(--shadow);
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: 0;
+  cursor: pointer;
+  font-size: 15px;
+  background: var(--accent2);
+  color: #fff;
+  box-shadow: var(--shadow);
+  font-weight: 600;
+  transition: background 0.2s ease;
 }
-.btn.outline {
-  background: transparent;
+.btn:hover { background: #148db5; }
+
+/* Show all link (below search bar) */
+.show-all-link {
+  display: block;
+  margin-top: 8px;
+  font-size: 14px;
   color: var(--accent2);
-  border: 1px solid rgba(26,163,216,0.3);
+  cursor: pointer;
+  text-decoration: underline;
+}
+.show-all-link:hover {
+  color: var(--accent1);
 }
 
 /* Hero */
@@ -181,22 +197,3 @@ body {
 
 /* Loading */
 .loading { color: var(--muted); padding: 30px; text-align: center; }
-
-/* Show All link styling */
-.show-all-link {
-  margin-top: 10px;
-  text-align: center;
-}
-
-.show-all-link a {
-  font-size: 14px;
-  color: var(--accent2);
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.show-all-link a:hover {
-  text-decoration: underline;
-}
-
-
