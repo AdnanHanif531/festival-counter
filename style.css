@@ -111,17 +111,19 @@ body {
 
 .dropdown {
   position: absolute;
-  top: 48px;
+  top: 100%;   /* directly below search input */
+  left: 0;
+  right: 0;
   background: white;
-  width: 100%;
   border-radius: 10px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   display: none;
   max-height: 260px;
   overflow-y: auto;
-  font-size: 14px;
+  font-size: 15px;
   z-index: 99;
 }
+
 .dropdown .item {
   padding: 10px 14px;
   cursor: pointer;
@@ -282,3 +284,4 @@ body {
   padding: 30px;
   text-align: center;
 }
+
